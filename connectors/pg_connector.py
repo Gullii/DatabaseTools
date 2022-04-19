@@ -20,7 +20,7 @@ class PostgresConnection:
         self.portg_port = postg_port
         self.ssl_mode = ssl_mode
 
-    def connection_string(self) -> str:
+    def get_connection_string(self) -> str:
         return (
             f"postgres://{urllib.parse.quote_plus(self.postg_user)}:{urllib.parse.quote_plus(self.postg_pass)}@"
             f"{self.postg_host}:{self.portg_port or 5432}/{self.postg_db}?sslmode={self.ssl_mode}"
