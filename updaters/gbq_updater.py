@@ -40,3 +40,6 @@ class GBQTableUpdater:
 
     def get_client(self):
         return self.connection.get_client()
+
+    def __str__(self):
+        return f"BigQueryUpdater for table {self.table_name}"

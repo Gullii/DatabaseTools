@@ -1,10 +1,15 @@
 import pandas as pd
 import sqlalchemy
+from connectors.pg_connector import PostgresConnection
 
 
 class PostgresTableUpdater:
     def __init__(
-        self, new_df: pd.DataFrame, table_name: str, connection, schema: str = "public"
+        self,
+        new_df: pd.DataFrame,
+        table_name: str,
+        connection: PostgresConnection,
+        schema: str = "public",
     ):
         """
         :param new_df: Dataframe that is to be saved in a table
@@ -13,7 +18,7 @@ class PostgresTableUpdater:
         :param schema: schema where the table to interact is nested in
         """
         self.table_name = table_name
-        self.connection = connection
+        self.connection = connection.get_connection()
         self.schema = schema
         self.dataframe = new_df
         self.engine = sqlalchemy.create_engine(
@@ -98,3 +103,6 @@ class PostgresTableUpdater:
 
     def get_connection(self):
         return self.connection
+
+    def __str__(self):
+        return f"PostgresTableUpdater for {self.table_name}"

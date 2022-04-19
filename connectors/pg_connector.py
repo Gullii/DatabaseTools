@@ -27,6 +27,10 @@ class PostgresConnection:
         )
 
     def get_connection(self):
+        """
+        Connect to the database with given credentials
+        :return: Connection object to query a database
+        """
         try:
             connection = psycopg2.connect(
                 user=self.postg_user,
@@ -41,3 +45,21 @@ class PostgresConnection:
             raise e
         else:
             return connection
+
+    def get_user(self) -> str:
+        return self.postg_user
+
+    def get_host(self) -> str:
+        return self.postg_host
+
+    def get_password(self) -> str:
+        return self.postg_pass
+
+    def get_db(self) -> str:
+        return self.postg_db
+
+    def get_sslmode(self) -> str:
+        return self.ssl_mode
+
+    def __str__(self):
+        return f"PostgresConnection at: {self.postg_user}@{self.postg_host}/{self.postg_db}"

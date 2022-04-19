@@ -30,3 +30,9 @@ class GoogleBigQueryConnection:
             raise e
         else:
             return gbq_client
+
+    def get_projectid(self) -> str:
+        return self.poject_id
+
+    def get_credentials(self):
+        return self.credentials
