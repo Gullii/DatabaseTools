@@ -7,6 +7,7 @@ from google.oauth2 import service_account
 class GoogleBigQueryConnection:
     def __init__(self, service_account_file_name: str, gbq_project_id: str):
         """
+        Refer to https://developers.google.com/workspace/guides/auth-overview for google auth flow
         :param service_account_file_name: Path to service account file
         :param gbq_project_id: Id of the Big Query Project
         """

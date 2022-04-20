@@ -13,5 +13,5 @@ Objects to update tables in various data sources. They use the objects declared 
 
 ## Examples
 
-Check `main.py` for some examples on how to use 
+The folders contain example files for basic usage of different classes.
 
